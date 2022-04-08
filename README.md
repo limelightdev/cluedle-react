@@ -17,7 +17,7 @@ After downloading this repository:
 
 1. Ensure that you have an appropriate package manager installed on your system such as `npm` (ships with [Node.js](https://nodejs.org/en/download/)) or `yarn`.
 2. In your terminal of choice, navigate to the folder where the code resides and run `npm ci` to pull down the required dependencies. This only needs to be done whenever a new version of **package.json** or **package-lock.json** is pulled down.
-3. Start the application by running `npm run start`.
+3. Start the application by running `npm run dev`.
 
 ## Contributing 👇
 
