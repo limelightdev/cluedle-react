@@ -1,0 +1,45 @@
+.keyboard {
+  margin: 0 8px;
+  user-select: none;
+  height: 200px;
+}
+
+.keyboard__row {
+  display: flex;
+  width: 100%;
+  margin: 0 auto 8px;
+  touch-action: manipulation;
+}
+
+.keyboard__row--100 {
+  width: 100%;
+}
+
+.keyboard__row--90 {
+  width: calc(100% - 10%);
+}
+
+.keyboard__row__button {
+  font-family: inherit;
+  font-weight: bold;
+  border: 0;
+  padding: 0;
+  margin: 0 6px 0 0;
+  height: 58px;
+  border-radius: 4px;
+  user-select: none;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  -webkit-tap-highlight-color: rgba(0,0,0,0.3);
+}
+
+.keyboard__row__button--010 {
+  flex: 1;
+}
+
+.keyboard__row__button--015 {
+  flex: 1.5;
+}
