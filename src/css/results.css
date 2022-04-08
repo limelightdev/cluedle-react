@@ -7,6 +7,7 @@
   grid-gap: 5px;
   padding: 10px;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .results__row {

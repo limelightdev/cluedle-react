@@ -34,6 +34,11 @@ function App() {
   const handleSetLettersExactState = (letter, slot) => {
     setLettersExactState(letterState, letter, slot);
     setWordState(letterState, lettersExactState);
+    // Scroll to the top of the results
+    const elem = document.querySelector(".results");
+    if (elem) {
+      elem.scrollTop = 0;
+    }
   };
 
   // Handle key presses for changing letter state and other functions
