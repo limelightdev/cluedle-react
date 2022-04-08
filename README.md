@@ -6,7 +6,7 @@
 A [Wordle](https://www.nytimes.com/games/wordle/) hint tool.
 
 Cluedle is a "reverse" Wordle of sorts. Upon selecting 3 or more letters, corresponding answers are presented (unless all of the selected letters are excluded from the solution, in which case a minimum of 5 letters is required). Users can then click on a highlighted letter in a solution to indicate that it should appear in that exact spot, filtering the results even more.
-d
+
 1. Select 3 or more letters to see possible solutions.
 2. Tap a letter more than once to switch between being *INCLUDED*, *EXCLUDED*, or *NEUTRAL* to the solution.
 3. Click a solution's highlighted letter to switch between a *BROAD* and *EXACT* match.
