@@ -22,6 +22,15 @@
   margin-bottom: 20px;
 }
 
+.instructions ul {
+  padding: 0 0 0 20px;
+  margin: 0;
+}
+
+.instructions ul li {
+  margin-bottom: 5px;
+}
+
 .instructions__span__padding {
   padding: 2px;
   border-radius: 3px;

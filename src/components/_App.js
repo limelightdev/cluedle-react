@@ -17,6 +17,14 @@ function App() {
   const [letterState, setLetterState] = useLetterState();
   const [lettersExactState, setLettersExactState] = useLettersExactState();
   const [wordState, setWordState] = useWordState();
+
+  // Handler function to scroll to the top of the results
+  const handleResultsScroll = useCallback(() => {
+    const elem = document.querySelector(".results");
+    if (elem) {
+      elem.scrollTop = 0;
+    }
+  }, []);
   
   // Handler function to get a specified letter's state
   const handleGetLetterState = (letter, slot = -1) => {
@@ -28,19 +36,16 @@ function App() {
     setLetterState(key);
     setLettersExactState(letterState);
     setWordState(letterState, lettersExactState);
-  }, [letterState, setLetterState, lettersExactState, setLettersExactState, setWordState]);
+    handleResultsScroll();
+  }, [letterState, setLetterState, lettersExactState, setLettersExactState, setWordState, handleResultsScroll]);
   
   // Handler function to toggle an exact letter match from the results
   const handleSetLettersExactState = (letter, slot) => {
     setLettersExactState(letterState, letter, slot);
     setWordState(letterState, lettersExactState);
-    // Scroll to the top of the results
-    const elem = document.querySelector(".results");
-    if (elem) {
-      elem.scrollTop = 0;
-    }
+    handleResultsScroll();
   };
-
+  
   // Handle key presses for changing letter state and other functions
   const handleKeyDown = useCallback((event) => {
     // Ignore key press events which include ctrl or alt

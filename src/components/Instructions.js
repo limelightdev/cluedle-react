@@ -6,9 +6,15 @@ export default function Instructions() {
     <div className="instructions">
       <p className="center medium">A <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank" rel="noreferrer">Wordle</a> hint tool.</p>
       <ol>
-        <li>Select 3 or more letters to see possible solutions. <em>If any exist, they will appear here.</em></li>
-        <li>Tap a letter more than once to switch between being <span className="bold instructions__span__padding background--included">INCLUDED</span> <span className="bold instructions__span__padding background--excluded">EXCLUDED</span> or <span className="bold instructions__span__padding background--neutral">NEUTRAL</span> to the solution.</li>
-        <li>Click a solution's highlighted letter to switch between a <span className="bold instructions__span__padding background--included">BROAD</span> and <span className="bold instructions__span__padding background--exact">EXACT</span> match.</li>
+        <li>
+          <p>Select one or more letters to see possible solutions. <em>If any exist, they will appear here.</em></p>
+          <ul>
+            <li>Tap a letter to <span className="bold instructions__span__padding background--included">INCLUDE</span> it.</li>
+            <li>Tap it twice to <span className="bold instructions__span__padding background--excluded">EXCLUDE</span> it.</li>
+            <li>A third tap will <span className="bold instructions__span__padding background--neutral">RESET</span> it.</li>
+          </ul>
+        </li>
+        <li>Click a matching letter in the word list to indicate <span className="bold instructions__span__padding background--exact">EXACT</span> placement.</li>
       </ol>
       <p className="center margin--0">
         This project is open source on

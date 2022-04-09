@@ -17,13 +17,19 @@ export const useWordState = () => {
     const lettersIncluded = letters.filter(l => l.state > 0);
     // Create a new array of letters which are excluded from the solution
     const lettersExcluded = letters.filter(l => l.state < 0);
-    // If no letters have been included, less than 5 have been excluded, or less than 3 letters have been selected in total, then empty the state array
-    if ((lettersIncluded.length < 1 && lettersExcluded.length < 5) || lettersIncluded.length + lettersExcluded.length < 3) {
+    // Keep track of the # of results to return up to a maximum
+    let wordCount = 0, maxWordCount = 200;
+    // If no letters have been selected then empty the state array
+    if (!(lettersIncluded.length + lettersExcluded.length)) {
       setWords([]);
       return;
     }
     // Create a results array by running a filter against the main word list
     const results = wordList.filter(word => {
+      // If we've already reached the max # of word matches
+      if (wordCount === maxWordCount) {
+        return false;
+      }
       let wordMatch = true;
       // Loop through any exact slot letters
       let exactSlot = -1;
@@ -62,6 +68,9 @@ export const useWordState = () => {
         // Return true by default
         return true;
       });
+      if (wordMatch) {
+        wordCount++;
+      }
       return wordMatch;
     })
     setWords([...results]);
