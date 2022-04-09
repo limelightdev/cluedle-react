@@ -1,7 +1,7 @@
 
 # Cluedle
 
-🔗 https://cluedle.xyz
+🔗 https://cluedle.app
 
 A [Wordle](https://www.nytimes.com/games/wordle/) hint tool.
 
