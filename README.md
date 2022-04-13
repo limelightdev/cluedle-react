@@ -1,9 +1,10 @@
 
 # Cluedle
 
-🔗 https://cluedle.app
-
 A [Wordle](https://www.nytimes.com/games/wordle/) hint tool.
+
+* 🔗 [https://cluedle.app](https://cluedle.app)
+* 🐤 [@cluedleapp](https://twitter.com/cluedleapp)
 
 Cluedle is a "reverse" Wordle of sorts. Upon selecting one or more letters, up to 200 solutions are presented. Users can then click on a highlighted letter in a solution to indicate that it should appear in that exact spot, filtering the results even more.
 
@@ -29,7 +30,7 @@ To contribute to the code, see [CONTRIBUTING.md](https://github.com/limelightdev
 
 ## Acknowledgements 👋
 
-I created this project as way of practicing my React skills. I had just completed an introductory course and wanted to build a self-assigned project. (Side note, I highly recommend the [Learn React Today](https://courses.webdevsimplified.com/learn-react-today) course for anyone that is new to React). I also studied some of the conventions found in Devang Thakkar's [Wordle Archive](https://github.com/devangthakkar/wordle_archive), which helped a lot.
+I created this project as way of practicing my React skills. I had just completed an introductory course and wanted to build a self-assigned project. (Side note, I highly recommend the [Learn React Today](https://courses.webdevsimplified.com/learn-react-today) course for anyone that is new to React). I also studied some of the conventions found in Devang Thakkar's [Wordle Archive](https://github.com/devangthakkar/wordle_archive) (and by extension Katherine Oelsner's [Word Master](https://github.com/octokatherine/word-master)), which helped a lot.
 
 As such, you may come across one or more antipatterns as I delved into the idea of custom hooks on my own. I would gladly welcome any constructive feedback!
 
