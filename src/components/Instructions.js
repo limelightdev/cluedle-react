@@ -23,7 +23,7 @@ export default function Instructions() {
         </a>
       </p>
       <p className="center margin-top--20 small">
-        Not affiliated with Wordle or The New York Times.
+        Not affiliated with Wordle or The New York Times
       </p>
     </div>
   )
