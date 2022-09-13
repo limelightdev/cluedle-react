@@ -1,6 +1,6 @@
 .results {
   width: 350px;
-  height: calc(100vh - 270px);
+  height: calc(100vh - 260px);
   max-height: 420px;
   overflow-y: auto;
   display: grid;
@@ -9,6 +9,13 @@
   padding: 10px;
   box-sizing: border-box;
   scroll-behavior: smooth;
+}
+
+@supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS devices */ 
+  .results {
+    height: calc(100vh - 320px);
+  }
 }
 
 .results__row {
