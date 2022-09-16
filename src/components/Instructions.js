@@ -27,7 +27,7 @@ export default function Instructions() {
           className="instructions__button instructions__button--share margin-right--40"
           onClick={() => {
             navigator.clipboard.writeText(
-              "Cluedle: A Wordle hint tool\n\nhttps://cluedle.app"
+              "Cluedle ⬛🟨🟩\nA Wordle hint tool\nhttps://cluedle.app"
             ).then(() => {
               setShareButtonText("Copied!");
             }, () => {
