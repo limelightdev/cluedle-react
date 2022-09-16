@@ -37,3 +37,22 @@
   border-radius: 3px;
   display: inline-block;
 }
+
+.instructions__button {
+  font-weight: bold;
+  border: 0;
+  border-radius: 200px; /* This just makes it shaped like a pill */
+  padding: 7px 0 7px 0;
+  vertical-align: middle;
+}
+
+.instructions__button span {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.instructions__button--share {
+  background-color: var(--color-green);
+  color: white;
+  width: 130px;
+}

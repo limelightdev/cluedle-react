@@ -1,7 +1,12 @@
 import React from 'react';
+import { useState } from 'react';
+import { ReactComponent as IconShare } from '../icons/Share.svg';
+import { ReactComponent as IconTwitter } from '../icons/Twitter.svg';
 import { ReactComponent as IconGitHub } from '../icons/GitHub.svg';
 
 export default function Instructions() {
+  const defaultShareButtonText = "Share";
+  const [shareButtonText, setShareButtonText] = useState(defaultShareButtonText);
   return (
     <div className="instructions">
       <p className="center medium">A <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank" rel="noreferrer">Wordle</a> hint tool.</p>
@@ -17,7 +22,26 @@ export default function Instructions() {
         <li>Click a matching letter in the word list to indicate <span className="bold instructions__span__padding background--exact">EXACT</span> placement.</li>
       </ol>
       <p className="center margin--0">
-        This project is open source on
+        <button
+          type="button"
+          className="instructions__button instructions__button--share margin-right--40"
+          onClick={() => {
+            navigator.clipboard.writeText(
+              "Cluedle: A Wordle hint tool\n\nhttps://cluedle.app"
+            ).then(() => {
+              setShareButtonText("Copied!");
+            }, () => {
+              // Ignore errors and display default button text
+              setShareButtonText(defaultShareButtonText);
+            });
+          }}
+        >
+          <IconShare />
+          <span>{shareButtonText}</span>
+        </button>
+        <a href="https://twitter.com/cluedleapp" target="_blank" rel="noreferrer" className="padding--10">
+          <IconTwitter />
+        </a>
         <a href="https://github.com/limelightdev/cluedle-react" target="_blank" rel="noreferrer" className="padding--10">
           <IconGitHub />
         </a>
