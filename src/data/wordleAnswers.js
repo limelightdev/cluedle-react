@@ -1,3 +1,4 @@
+// This only contains actual Wordle solutions
 export const wordleAnswers = [
   "aback",
   "abase",

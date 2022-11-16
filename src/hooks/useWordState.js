@@ -1,18 +1,11 @@
 import { useState } from "react";
-import { wordleAnswers } from "../data/wordleAnswers.js";
-
-// Build a list of wordle answers. Each word is its own array of letters.
-const wordList = [];
-wordleAnswers.forEach(word => {
-  wordList.push([word.slice(0, 1), word.slice(1, 2), word.slice(2, 3), word.slice(3, 4), word.slice(4, 5)]);
-});
 
 // Tracks matching words
 export const useWordState = () => {
   // Initialize the state (no results by default)
   const [words, setWords] = useState([]);
-
-  const setWordState = (letters, lettersExact) => {
+  
+  const setWordState = (dictionary, letters, lettersExact) => {
     // Create a new array of letters which are included in the solution
     const lettersIncluded = letters.filter(l => l.state > 0);
     // Create a new array of letters which are excluded from the solution
@@ -25,7 +18,7 @@ export const useWordState = () => {
       return;
     }
     // Create a results array by running a filter against the main word list
-    const results = wordList.filter(word => {
+    const results = dictionary.filter(word => {
       // If we've already reached the max # of word matches
       if (wordCount === maxWordCount) {
         return false;

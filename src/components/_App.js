@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 // CSS
 import "../css/_app.css";
@@ -6,17 +6,34 @@ import "../css/_app.css";
 // Hooks
 import { useLetterState, getLetterState } from "../hooks/useLetterState.js";
 import { useLettersExactState } from "../hooks/useLettersExactState.js";
+import { useDictionaryState } from "../hooks/useDictionaryState";
 import { useWordState } from "../hooks/useWordState.js";
+import { useLocalStorage } from "../hooks/useLocalStorage.js";
 
 // Components
 import Instructions from "./Instructions";
 import Results from "./Results";
 import Keyboard from "./Keyboard";
+import SettingsModal from "./modal/SettingsModal";
+
+// Button images
+import { ReactComponent as IconSettings } from '../icons/Settings.svg'
 
 function App() {
+  // Custom hooks
   const [letterState, setLetterState] = useLetterState();
   const [lettersExactState, setLettersExactState] = useLettersExactState();
+  const [dictionaryState, setDictionaryState] = useDictionaryState();
   const [wordState, setWordState] = useWordState();
+
+  // Modal state
+  const [settingsModalOpen, setSettingsModalOpen] = useState(false);
+  
+  // Application settings (aligned with local storage)
+  const [allWords, setAllWords] = useLocalStorage('cluedle.allWords', false);
+  const toggleAllWords = () => {
+    setAllWords((state) => !state);
+  }
 
   // Handler function to scroll to the top of the results
   const handleResultsScroll = useCallback(() => {
@@ -35,14 +52,14 @@ function App() {
   const handleSetLetterState = useCallback((key) => {
     setLetterState(key);
     setLettersExactState(letterState);
-    setWordState(letterState, lettersExactState);
+    setWordState(dictionaryState, letterState, lettersExactState);
     handleResultsScroll();
-  }, [letterState, setLetterState, lettersExactState, setLettersExactState, setWordState, handleResultsScroll]);
+  }, [letterState, setLetterState, lettersExactState, setLettersExactState, dictionaryState, setWordState, handleResultsScroll]);
   
   // Handler function to toggle an exact letter match from the results
   const handleSetLettersExactState = (letter, slot) => {
     setLettersExactState(letterState, letter, slot);
-    setWordState(letterState, lettersExactState);
+    setWordState(dictionaryState, letterState, lettersExactState);
     handleResultsScroll();
   };
   
@@ -75,6 +92,18 @@ function App() {
     };
   }, [handleKeyDown]);
 
+  // Build the dictionary any time the allWords setting is read or updated
+  useEffect(() => {
+    setDictionaryState(allWords);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allWords]);
+
+  // Refresh the words listed any time the dictonary is updated
+  useEffect(() => {
+    setWordState(dictionaryState, letterState, lettersExactState);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dictionaryState]);
+
   // Display instructions by default (when no results are available)
   let resultsContent = <Instructions />
   if (wordState.length) {
@@ -83,13 +112,24 @@ function App() {
 
   return (
     <>
-      <header className="header">Cluedle</header>
+      <header className="header">
+        Cluedle
+        <button type="button" className="header__button header__button--settings" onClick={() => setSettingsModalOpen(true)}>
+          <IconSettings />
+        </button>
+      </header>
       <div className="board">
         <div className="board__results">
           {resultsContent}
         </div>
         <Keyboard getLetterState={handleGetLetterState} setLetterState={handleSetLetterState} />
       </div>
+      <SettingsModal
+        isOpen={settingsModalOpen}
+        allWords={allWords}
+        toggleAllWords={toggleAllWords}
+        handleClose={() => { setSettingsModalOpen(false); } }
+      />
     </>
   );
 }

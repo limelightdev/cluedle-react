@@ -28,7 +28,7 @@
   height: 58px;
   border-radius: 4px;
   user-select: none;
-  color: #fff;
+  color: var(--color-white);
   display: flex;
   justify-content: center;
   align-items: center;

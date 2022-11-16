@@ -37,7 +37,7 @@
   font-weight: bold;
   vertical-align: middle;
   box-sizing: border-box;
-  color: #fff;
+  color: var(--color-white);
   text-transform: uppercase;
   user-select: none;
 }

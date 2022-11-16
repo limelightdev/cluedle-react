@@ -1,0 +1,80 @@
+/* It seems the only way to get the opacity fade effect properly is to use the default class name for the overlay */
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.modal__content {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  height: calc(100% - 2rem);
+  width: calc(100% - 2rem);
+  max-width: 475px;
+  border: none;
+  border-radius: 1rem;
+  padding: 20px;
+  color: white;
+  background-color: var(--color-black);
+  position: relative;
+}
+
+.modal__content--settings {
+  max-height: 520px;
+}
+
+.modal__content--title {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.modal__content--item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-dark-gray);
+  padding: 16px 0;
+}
+
+.modal__content--item a {
+  color: var(--color-gray);
+}
+
+.modal__content--item-settings {
+  padding-right: 8px;
+}
+
+.modal__content--item-settings-title {
+  font-size: 18px;
+}
+
+.modal__content--item-settings-description {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-gray);
+}
+
+.modal__button {
+  background: transparent;
+  border: 0;
+  color: var(--color-white);
+}
+
+.modal__button--close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
