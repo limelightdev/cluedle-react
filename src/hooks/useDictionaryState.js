@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState } from "preact/hooks";
 import { wordleAnswers } from "../data/wordleAnswers.js";
 import { wordleDictionary } from "../data/wordleDictionary.js";
 
 export const useDictionaryState = () => {
   // Initialize the state (no words by default)
   const [dictionary, setDictionary] = useState([]);
-  
+
   const setDictionaryState = (allWords) => {
     const words = [];
     // If we are only interested in wordle answers (not all English words)
@@ -22,6 +22,6 @@ export const useDictionaryState = () => {
     }
     setDictionary([...words]);
   }
-  
+
   return [dictionary, setDictionaryState];
 }

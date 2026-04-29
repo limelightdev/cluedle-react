@@ -1,6 +1,5 @@
-import React from 'react'
-import { ReactComponent as IconRefresh } from '../icons/Refresh.svg';
-import { ReactComponent as IconBackspace } from '../icons/Backspace.svg';
+import IconRefresh from '../icons/Refresh.svg?react';
+import IconBackspace from '../icons/Backspace.svg?react';
 
 // Keyboard rows
 const keyboardRows = [{
@@ -40,7 +39,7 @@ export default function Keyboard({ setLetterState, getLetterState }) {
               }
               {
                 keyboardRowKeys.map((key) => (
-                  <button 
+                  <button
                     type="button"
                     key={`button_${key}`}
                     onClick={() => setLetterState(key)}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "preact/hooks";
 
 // CSS
 import "../css/_app.css";
@@ -17,7 +17,7 @@ import Keyboard from "./Keyboard";
 import SettingsModal from "./modal/SettingsModal";
 
 // Button images
-import { ReactComponent as IconSettings } from '../icons/Settings.svg'
+import IconSettings from '../icons/Settings.svg?react'
 
 function App() {
   // Custom hooks
@@ -28,7 +28,7 @@ function App() {
 
   // Modal state
   const [settingsModalOpen, setSettingsModalOpen] = useState(false);
-  
+
   // Application settings (aligned with local storage)
   const [allWords, setAllWords] = useLocalStorage('cluedle.allWords', false);
   const toggleAllWords = () => {
@@ -42,7 +42,7 @@ function App() {
       elem.scrollTop = 0;
     }
   }, []);
-  
+
   // Handler function to get a specified letter's state
   const handleGetLetterState = (letter, slot = -1) => {
     return getLetterState(letterState, lettersExactState, letter, slot);
@@ -55,14 +55,14 @@ function App() {
     setWordState(dictionaryState, letterState, lettersExactState);
     handleResultsScroll();
   }, [letterState, setLetterState, lettersExactState, setLettersExactState, dictionaryState, setWordState, handleResultsScroll]);
-  
+
   // Handler function to toggle an exact letter match from the results
   const handleSetLettersExactState = (letter, slot) => {
     setLettersExactState(letterState, letter, slot);
     setWordState(dictionaryState, letterState, lettersExactState);
     handleResultsScroll();
   };
-  
+
   // Handle key presses for changing letter state and other functions
   const handleKeyDown = useCallback((event) => {
     // Ignore key press events which include ctrl or alt

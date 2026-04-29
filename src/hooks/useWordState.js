@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState } from "preact/hooks";
 
 // Tracks matching words
 export const useWordState = () => {
   // Initialize the state (no results by default)
   const [words, setWords] = useState([]);
-  
+
   const setWordState = (dictionary, letters, lettersExact) => {
     // Create a new array of letters which are included in the solution
     const lettersIncluded = letters.filter(l => l.state > 0);

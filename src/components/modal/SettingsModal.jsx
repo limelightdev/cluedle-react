@@ -1,16 +1,34 @@
-import React from 'react';
-import Modal from 'react-modal';
-import { ReactComponent as IconClose } from '../../icons/Close.svg'
-
-Modal.setAppElement('#root');
+import { useRef, useEffect } from 'preact/hooks';
+import IconClose from '../../icons/Close.svg?react';
 
 export default function SettingsModal({ isOpen, allWords, toggleAllWords, handleClose }) {
+  const dialogRef = useRef(null);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+
+    if (isOpen) {
+      dialog.showModal();
+    } else if (dialog.open) {
+      dialog.classList.add('modal--closing');
+      const onAnimEnd = () => {
+        dialog.classList.remove('modal--closing');
+        dialog.close();
+      };
+      dialog.addEventListener('animationend', onAnimEnd, { once: true });
+    }
+  }, [isOpen]);
+
+  const handleDialogClick = (e) => {
+    if (e.target === e.currentTarget) handleClose();
+  };
+
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={handleClose}
+    <dialog
+      ref={dialogRef}
       className="modal__content modal__content--settings"
-      closeTimeoutMS={300}
+      onClick={handleDialogClick}
     >
       <h2 className="modal__content--title">SETTINGS</h2>
       <button
@@ -52,6 +70,6 @@ export default function SettingsModal({ isOpen, allWords, toggleAllWords, handle
           <a href="https://twitter.com/cluedleapp" target="_blank" rel="noreferrer">Twitter</a>
         </div>
       </div>
-    </Modal>
+    </dialog>
   )
 }

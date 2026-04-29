@@ -1,8 +1,7 @@
-import React from 'react';
-import { useState } from 'react';
-import { ReactComponent as IconShare } from '../icons/Share.svg';
-import { ReactComponent as IconTwitter } from '../icons/Twitter.svg';
-import { ReactComponent as IconGitHub } from '../icons/GitHub.svg';
+import { useState } from 'preact/hooks';
+import IconShare from '../icons/Share.svg?react';
+import IconTwitter from '../icons/Twitter.svg?react';
+import IconGitHub from '../icons/GitHub.svg?react';
 
 export default function Instructions() {
   const defaultShareButtonText = "Share";

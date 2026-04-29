@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback } from "preact/hooks";
 
 // An array of 5 empty slots for the initial state
 const defaultLettersExact = ["", "", "", "", ""];

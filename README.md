@@ -14,7 +14,7 @@ Cluedle is a "reverse" Wordle of sorts. Upon selecting one or more letters, up t
     * A third tap will *RESET* it.
 2. Click a matching letter in the word list to indicate *EXACT* placement.
 
-## Installation ⚛️
+## Installation
 
 After downloading this repository:
 
@@ -24,7 +24,7 @@ After downloading this repository:
 
 ## Contributing 👇
 
-This project is built with [React](https://reactjs.org). Feel free to open an issue for any bugs or feature requests.
+This project is built with [Preact](https://preactjs.com) and [Vite](https://vitejs.dev). Feel free to open an issue for any bugs or feature requests.
 
 To contribute to the code, see [CONTRIBUTING.md](https://github.com/limelightdev/cluedle-react/blob/master/CONTRIBUTING.md)
 

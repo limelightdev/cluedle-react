@@ -21,6 +21,7 @@
 
 .keyboard__row__button {
   font-family: inherit;
+  font-size: 1rem;
   font-weight: bold;
   border: 0;
   padding: 0;

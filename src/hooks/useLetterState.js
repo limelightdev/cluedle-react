@@ -1,10 +1,10 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback } from 'preact/hooks'
 
 // Default letters array
 // Loop through Ascii codes for (a - z) and store the letter and default state of 0 (neutral)
 // [{ letter: a, state: 0}, ...]
 const defaultLetterState = [];
-for (let i = 97; i < 123; i++) { 
+for (let i = 97; i < 123; i++) {
   defaultLetterState.push({
     letter: String.fromCharCode(i),
     state: 0,
@@ -117,4 +117,3 @@ export const useLetterState = () => {
   }
   return state;
 };
-
